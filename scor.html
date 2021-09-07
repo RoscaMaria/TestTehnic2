@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+	<head>
+		<title>Pagina Scor</title>
+		<link href='stylePaginaScor.css' rel='stylesheet' type='text/css'>
+		<link href='triunghiScor.css' rel='stylesheet' type='text/css'>
+		<script src="funcSortare.js"></script>
+		
+	</head>
+	<body >
+		<label>Scor:</label>
+		
+		<form  onsubmit="return compareScore()" name="frm1" action = "" >
+			<input id = "quantity" type="number" name="quantity">
+			<input type="submit" name="submit" value="Submit" />
+			
+		</form>
+		<div class="row">
+			<div class="column" >
+				<div id = "lvl1">
+					<div class="arrow-up"></div>
+					<div class="arrow-down"></div>
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<span class="dot">01</span>
+				<div class="line"></div>
+				<div class="vl"></div>
+				
+			</div>
+			<div class="column" style="background-color:#bbb;">
+				<div id = "lvl2">
+					<div class="arrow-up"></div>
+					<div class="arrow-down"></div>
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<span class="dot2">02</span>
+				
+				<div class="vl1"></div>
+				<div class="line2"></div>
+			</div>
+			<div class="column" style="background-color:#ccc;">
+				<div id = "lvl3">
+					<div class="arrow-up"></div>
+					<div class="arrow-down"></div>
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<span class="dot">03</span>
+				<div class="line"></div>
+				<div class="vl"></div>
+
+			</div>
+		</div>
+		<script>
+		var scor = localStorage.getItem("myValue");
+		if(scor <= 29){
+		alert("mai mic ca 29");
+		document.getElementById("lvl1").style.display = "block";
+		document.getElementById("lvl2").style.display = "none";
+		document.getElementById("lvl3").style.display = "none";
+		
+		
+	}else if(scor > 29 && scor <= 79){
+		alert("intre 29 si 79");
+		document.getElementById("lvl1").style.display = "none";
+		document.getElementById("lvl2").style.display = "block";
+		document.getElementById("lvl3").style.display = "none";
+		
+		
+	}else if(scor > 79 && scor <= 100){
+		alert("intre 79 si 100");
+		document.getElementById("lvl1").style.display = "none";
+		document.getElementById("lvl2").style.display = "none";
+		document.getElementById("lvl3").style.display = "block";
+		
+		
+	}
+		
+		
+	</script>
+</body>
+</html>

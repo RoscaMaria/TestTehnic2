@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+	<head>
+		<title>Tabel</title>
+		<link href='tabel.css' rel='stylesheet' type='text/css'>
+		<script src="sortTable.js"></script>
+		
+		<script>
+			function takeScore(){
+				var table, name, i, cells, cell, rowId;
+				table = document.getElementById("punctaje");
+				cells = table.getElementsByTagName("TD");
+				
+				for (var i = 0; i < cells.length; i++){
+					cell = cells[i];
+					
+					cell.onclick = function(){
+						var rowId, rowsNotSelected;
+						rowId = this.parentNode.rowIndex;
+						rowsNotSelected = table.getElementsByTagName('tr');
+						for (var row = 0; row < rowsNotSelected.length; row++){
+							rowsNotSelected[row].classList.remove('selected');
+						}
+						var rowSelected = table.getElementsByTagName('tr')[rowId];
+						rowSelected.className += " selected";
+						msg = 'Scor: ' + rowSelected.cells[2].innerHTML;
+						msg += '\nConcurent: ' + this.innerHTML;
+						alert(msg);
+						scor = rowSelected.cells[2].innerHTML;
+						localStorage.setItem("myValue", scor);
+						window.location.href="scor.html";
+						return false;
+						}
+						}
+						}
+		</script>
+	</head>
+	<body>
+		<table id = "punctaje" class = "table" >
+			<thead>
+				<tr>
+					<th>Order</th>
+					<th onclick="sortTableAlfa(1)">Student</th>
+					<th onclick="sortTableNum(2)">Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td onclick="takeScore();">Cyrus</td>
+					<td>80</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td onclick="takeScore();">Maria</td>
+					<td contenteditable="true">90</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td onclick="takeScore();">Roger</td>
+					<td contenteditable="true">70</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td onclick="takeScore();">Ethan</td>
+					<td contenteditable="true">60</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td onclick="takeScore();">Anna</td>
+					<td contenteditable="true">100</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td onclick="takeScore();">Gilbert</td>
+					<td contenteditable="true">40</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td onclick="takeScore();">Francesca</td>
+					<td contenteditable="true">50</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</body>
+</html>
